@@ -1,0 +1,33 @@
+//this project is made by Manish Kumar Yadav
+int motorpin=9;
+int sensorpin= A0;  
+int sensorval;
+int ledpin1=13;
+int ledpin2=12;
+void setup() {
+  pinMode(motorpin,OUTPUT);
+  pinMode(sensorpin,INPUT); 
+  pinMode(ledpin1,OUTPUT);
+  pinMode(ledpin2,OUTPUT);
+  // put your setup code here, to run once:
+
+}
+
+void loop() {
+  sensorval=analogRead(sensorpin);
+  sensorval=sensorval/2.0741;
+  if(sensorval>30)
+  {
+    digitalWrite(motorpin,HIGH);
+    digitalWrite(ledpin1,HIGH);
+    digitalWrite(ledpin2,LOW);
+    delay(500);
+  }
+  else
+  {
+    digitalWrite(motorpin,LOW);
+    digitalWrite(ledpin1,LOW);
+    digitalWrite(ledpin2,HIGH);
+    delay(500);
+  }
+}
